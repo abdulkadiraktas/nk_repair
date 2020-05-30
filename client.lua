@@ -37,7 +37,7 @@ AddEventHandler('nk_repair:MettiCrick', function(ped, coords, veh)
 		Citizen.Wait(1)
 	end
 	local vehjack = CreateObject(GetHashKey(model), vehpos.x, vehpos.y, vehpos.z - 0.5, true, true, true)
-	exports['progressBars']:startUI(9250, "POSIZIONANDO IL CRIC") -- TRANSLATE THIS, THAT SAY WHEN YOU PUT THE CRIC
+	exports['progressBars']:startUI(9250, "Kriko yerleştiriliyor.") -- TRANSLATE THIS, THAT SAY WHEN YOU PUT THE CRIC
 	AttachEntityToEntity(vehjack, veh, 0, 0.0, 0.0, -1.0, 0.0, 0.0, 0.0, false, false, false, false, 0, true)
 	TaskPlayAnimAdvanced(ped, dict, 'car_bomb_mechanic', coords, 0.0, 0.0, headin, 1.0, 0.5, 1250, 1, 0.0, 1, 1)
 	Citizen.Wait(1250)
@@ -73,7 +73,7 @@ AddEventHandler('nk_repair:MettiCrick', function(ped, coords, veh)
 	while not HasAnimDictLoaded(dict) do
 		Citizen.Wait(100)
 	end
-	exports['progressBars']:startUI(11000, "AGGIUSTANDO IL VEICOLO") -- TRANSLATE THIS - THAT SAY WHEN YOU REPAIR THE VEHICLE
+	exports['progressBars']:startUI(11000, "Araç tamir ediliyor.") -- TRANSLATE THIS - THAT SAY WHEN YOU REPAIR THE VEHICLE
 	TaskPlayAnimAdvanced(ped, dict, 'onback_bwd', coords, 0.0, 0.0, headin - 180, 1.0, 0.5, 3000, 1, 0.0, 1, 1)
 	dict = 'amb@world_human_vehicle_mechanic@male@base'
 	Citizen.Wait(3000)
@@ -101,7 +101,7 @@ AddEventHandler('nk_repair:MettiCrick', function(ped, coords, veh)
 	SetVehicleUndriveable(vehicle, false)
 	SetVehicleEngineOn(vehicle, true, true)
 	ClearPedTasksImmediately(playerPed)
-	exports['progressBars']:startUI(8250, "LEVANDO IL CRICK") -- TLANSTALE THIS - THAT SAY WHEN YOU LEAVE THE CRIC
+	exports['progressBars']:startUI(8250, "Kriko toplanıyor") -- TLANSTALE THIS - THAT SAY WHEN YOU LEAVE THE CRIC
 	TaskPlayAnimAdvanced(ped, dict, 'car_bomb_mechanic', coords, 0.0, 0.0, headin, 1.0, 0.5, 1250, 1, 0.0, 1, 1)
 	Citizen.Wait(1250)
 	SetEntityCoordsNoOffset(veh, vehpos.x, vehpos.y, vehpos.z + 0.4, true, true, true)
@@ -146,7 +146,7 @@ AddEventHandler('nk_repair:MenuRipara', function()
 			}
 			ESX.UI.Menu.CloseAll()
 			ESX.UI.Menu.Open('default', GetCurrentResourceName(), 'bombtype', {
-				title    = 'Meccanico',
+				title    = 'Mekanik',
 				align    = 'top-left',
 				elements = elements
 			}, function(data, menu)
@@ -161,7 +161,7 @@ AddEventHandler('nk_repair:MenuRipara', function()
 				menu.close()
 			end)
 		else
-			ESX.ShowNotification('Devi essere vicino ad un ~y~Veicolo~s~!') -- TRANSLATE THIS - THAT SAY WHEN YOU DON'T HAVE ANY VEHICLE IN THE NEAR
+			ESX.ShowNotification('Araca yakın olmalısın!') -- TRANSLATE THIS - THAT SAY WHEN YOU DON'T HAVE ANY VEHICLE IN THE NEAR
 		end
 	end
 end)
